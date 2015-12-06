@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>日历表</title>
+<style type="text/css">
+<!--
+*{margin:0px;}
+.top{width:100%; height:100px; background-color:#0066FF;}
+.top .topp{height: 44px;margin-top:25px;margin-left:10px;padding-left:100px;float: left;overflow: hidden;font-size: 40px; color:#FFFFFF;}
+.yhy{height:592px; width:236px; background-color:#0099FF; position:relative;}
+.yhy .toup{position:absolute; top:10px; left:8px;} 
+.yhy .yhm{position:absolute; top:260px; left:18px; font-size:24px;}
+.yhy .lr{position:absolute; top:310px; left:18px; font-size:24px; height:30px; width:200px; cursor:pointer; color:#FFFFFF;}
+.yhy .xg{position:absolute; top:360px; left:18px;  font-size:24px; height:30px; width:200px;cursor:pointer; color:#FFFFFF;}
+.yhy .sc{position:absolute; top:410px; left:18px;  font-size:24px; height:30px; width:200px;cursor:pointer; color:#FFFFFF;}
+.yhy .cd{position:absolute; top:460px; left:18px;  font-size:24px; height:30px; width:200px;cursor:pointer; color:#FFFFFF;}
+.yhy .lr:hover{font-size:27px;}
+.yhy .ck:hover{font-size:27px;}
+.yhy .sc:hover{font-size:27px;}
+.yhy .cd:hover{font-size:27px;}
+.ckq{height:592px; width:1130px; background-image:url(picture/4563a34bd11373f0ca515f69a40f4bfbfaed04fd.jpg); position:absolute; top:100px; left:236px}
+.ckq .rl{position:absolute; top:40px; left:200px;}
+.ckq .zyt{position:absolute; top:160px; left:730px;}
+.ckq .yjt{position:absolute; top:160px; left:40px;}
+#ad{text-align:center}
+*#jr{background-color:#FFFF33; color:#FF0000;}
+*#tp:hover{width:140px; height:140px;}
+.ckq .rczs{position:absolute; top:400px; left:50px; overflow:auto;}
+.ckq .ckjt{position:absolute; top:430px; left:850px;}
+-->
+</style>
+<script language="javascript">
+var mth=new Array(12);
+mth[0]="<table border='0' align='center' width='500px' height='300px' id='201511' ><caption><font size='+3'>十一月</font></caption><tr align='center' bgcolor='#FFFF66'><th>星期日</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th></tr><tr align='center' bgcolor='#66FFFF'><td id='jr'>1<br />万圣节</td><td>2<br />廿一</td><td>3<br />廿二</td><td>4<br />廿三</td><td>5<br />廿四</td><td>6<br />廿五</td><td>7<br />廿六</td></tr><tr align='center' bgcolor='#66FFFF'><td id='jr'>8<br />立冬</td><td>9<br />廿八</td><td>10<br />廿九</td><td>11<br />三十</td><td id='jr'>12<br />十月</td><td>13<br />初二</td><td>14<br />初三</td></tr><tr align='center' bgcolor='#66FFFF'><td>15<br />初四</td><td>16<br />初五</td><td>17<br />初六</td><td>18<br />初七</td><td>19<br />初八</td><td>20<br />初九</td><td>21<br />初十</td></tr><tr align='center' bgcolor='#66FFFF'><td>22<br />十一</td><td>23<br />十二</td><td id='jr'>24<br />小雪</td><td>25<br />十四</td><td>26<br />十五</td><td>27<br />十六</td><td>28<br />十七</td></tr><tr align='center' bgcolor='#66FFFF'><td>29<br />十八</td><td>30<br />十九</td><td></td><td></td><td></td><td></td><td></td></tr></table>";
+mth[1]="<table border='0' align='center' width='500px' height='300px' id='201512'><caption><font size='+3'>十二月</font></caption><tr align='center' bgcolor='#FFFF66'><th>星期日</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th></tr><tr align='center' bgcolor='#66FFFF'><td></td><td></td><td>1<br />廿十</td><td>2<br />廿一</td><td>3<br />廿二</td><td>4<br />廿三</td><td>5<br />廿四</td></tr><tr align='center' bgcolor='#66FFFF'><td>6<br />廿五</td><td id='jr'>7<br />大雪</td><td>8<br />廿七</td><td>9<br />廿八</td><td>10<br />廿九</td><td id='jr'>11<br />十一月</td><td>12<br />初二</td></tr><tr align='center' bgcolor='#66FFFF'><td>13<br />初二</td><td>14<br />初三</td><td>15<br />初四</td><td>16<br />初五</td><td>17<br />初六</td><td>18<br />初八</td><td>19<br />初九</td></tr><tr align='center' bgcolor='#66FFFF'><td>20<br />初十</td><td>21<br />十一</td><td id='jr'>22<br />冬至</td><td>23<br />十三</td><td>24<br />十四</td><td>25<br />十五</td><td>26<br />十六</td></tr><tr align='center' bgcolor='#66FFFF'><td>27<br />十七</td><td>28<br />十八</td><td>29<br />十九</td><td>30<br />廿十</td><td>31<br />廿一</td><td></td><td></td></tr></table>";
+mth[2]="<table border='0' align='center' width='500px' height='300px' id='201601' ><caption><font size='+3'>一月</font></caption><tr align='center' bgcolor='#FFFF66'><th>星期日</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th></tr><tr align='center' bgcolor='#66FFFF'><td></td><td></td><td></td><td></td><td></td><td id='jr'>1<br />元旦</td><td>2<br />廿三</td></tr><tr align='center' bgcolor='#66FFFF'><td>3<br />廿四</td><td>4<br />廿五</td><td>5<br />廿六</td><td>6<br />廿七</td><td>7<br />廿八</td><td>8<br />廿九</td><td>9<br />三十</td></tr><tr align='center' bgcolor='#66FFFF'><td id='jr'>10<br />腊月</td><td>11<br />初二</td><td>12<br />初三/td><td>13<br />初四</td><td>14<br />初五</td><td>15<br />初六</td><td>16<br />初七</td></tr><tr align='center' bgcolor='#66FFFF'><td id='jr'>17<br />腊八</td><td>18<br />初九</td><td>19<br />初十</td><td>20<br />十一</td><td>21<br />十二</td><td>22<br />十三</td><td>23<br />十四</td></tr><tr align='center' bgcolor='#66FFFF'><td>24<br />十五</td><td>25<br />十六</td><td>26<br />十七</td><td>27<br />十八</td><td>28<br />十九</td><td>29<br />二十</td><td>30<br />廿一</td></tr><tr align='center' bgcolor='#66FFFF'><td>31<br />廿二</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>";
+mth[3]="<table border='0' align='center' width='500px' height='300px' id='201602'><caption><font size='+3'>二月</font></caption><tr align='center' bgcolor='#FFFF66'><th>星期日</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th></tr><tr align='center' bgcolor='#66FFFF'><td></td><td>1<br />廿三</td><td>2<br />廿四</td><td>3<br />廿五</td><td>4<br />廿六</td><td>5<br />廿七</td><td>6<br />廿八</td></tr><tr align='center' bgcolor='#66FFFF'><td id='jr'>7<br />除夕</td><td id='jr'>8<br />春节</td><td>9<br />初二</td><td>10<br />初三</td><td>11<br />初四</td><td>12<br />初五</td><td>13<br />初六</td></tr><tr align='center' bgcolor='#66FFFF'><td id='jr'>14<br />情人节</td><td>15<br />初八</td><td>16<br />初九</td><td>17<br />初十</td><td>18<br />十一</td><td id='jr'>19<br />雨水</td><td>20<br />十三</td></tr><tr align='center' bgcolor='#66FFFF'><td>21<br />十四</td><td id='jr'>22<br />元宵</td><td>23<br />十六</td><td>24<br />十七</td><td>25<br />十八</td><td>26<br />十九</td><td>27<br />二十</td></tr><tr align='center' bgcolor='#66FFFF'><td>28<br />廿一</td><td>29<br />廿二</td><td></td><td></td><td></td><td></td><td></td></tr></table>";
+mth[4]="<table border='0' align='center' width='500px' height='300px' id='201603'><caption><font size='+3'>三月</font></caption><tr align='center' bgcolor='#FFFF66'><th>星期日</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th></tr><tr align='center' bgcolor='#66FFFF'><td></td><td></td><td>1<br />廿三</td><td>2<br />廿四</td><td>3<br />廿五</td><td>4<br />廿六</td><td id='jr'>5<br />惊蛰</td></tr><tr align='center' bgcolor='#66FFFF'><td>6<br />廿八</td><td>7<br />廿九</td><td id='jr'>8<br />妇女节</td><td id='jr'>9<br />二月</td><td>10<br />初二</td><td>11<br />初三</td><td id='jr'>12<br />植树节</td></tr><tr align='center' bgcolor='#66FFFF'><td>13<br />初五</td><td>14<br />初六</td><td id='jr'>15<br />消权日</td><td>16<br />初八</td><td>17<br />初九</td><td>18<br />初十</td><td>19<br />十一</td></tr><tr align='center' bgcolor='#66FFFF'><td id='jr'>20<br />春分</td><td>21<br />十三</td><td>22<br />十四</td><td>23<br />十五</td><td>24<br />十六</td><td>25<br />十七</td><td>26<br />十八</td></tr><tr align='center' bgcolor='#66FFFF'><td>27<br />十九</td><td>28<br />二十</td><td>29<br />廿一</td><td>30<br />廿二</td><td>31<br />廿三</td><td></td><td></td></tr></table>";
+mth[5]="<table border='0' align='center' width='500px' height='300px' id='201604'><caption><font size='+3'>四月</font></caption><tr align='center' bgcolor='#FFFF66'><th>星期日</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th></tr><tr align='center' bgcolor='#66FFFF'><td></td><td></td><td></td><td></td><td></td><td id='jr'>1<br />愚人节</td><td>2<br />廿五</td></tr><tr align='center' bgcolor='#66FFFF'><td>3<br />廿六</td><td id='jr'>4<br />清明节</td><td>5<br />廿八</td><td>6<br />廿九</td><td id='jr'>7<br />三月</td><td>8<br />初二</td><td>9<br />初三</td></tr><tr align='center' bgcolor='#66FFFF'><td>10<br />初四</td><td>11<br />初五</td><td>12<br />初六</td><td>13<br />初七</td><td>14<br />初八</td><td>15<br />初九</td><td>16<br />初十</td></tr><tr align='center' bgcolor='#66FFFF'><td>17<br />十一</td><td>18<br />十二</td><td id='jr'>19<br />谷雨</td><td>20<br />十四</td><td>21<br />十五</td><td>22<br />十六</td><td>23<br />十七</td></tr><tr align='center' bgcolor='#66FFFF'><td>24<br />十八</td><td>25<br />十九</td><td>26<br />二十</td><td>27<br />廿一</td><td>28<br />廿二</td><td>29<br />廿三</td><td>30<br />廿四</td></tr></table>";
+mth[6]="<table border='0' align='center' width='500px' height='300px' id='201605'><caption><font size='+3'>五月</font></caption><tr align='center' bgcolor='#FFFF66'><th>星期日</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th></tr><tr align='center' bgcolor='#66FFFF'><td id='jr'>1<br />劳动节</td><td>2<br />廿六</td><td>3<br />廿七</td><td id='jr'>4<br />青年节</td><td id='jr'>5<br />立夏</td><td>6<br />三十</td><td id='jr'>7<br />四月</td></tr><tr align='center' bgcolor='#66FFFF'><td id='jr'>8<br />母亲节</td><td>9<br />初三</td><td>10<br />初四</td><td>11<br />初五</td><td>12<br />初六</td><td>13<br />初七</td><td>14<br />初八</td></tr><tr align='center' bgcolor='#66FFFF'><td>15<br />初九</td><td>16<br />初十</td><td>17<br />十一</td><td>18<br />十二</td><td>19<br />十三</td><td id='jr'>20<br />小满</td><td>21<br />十五</td></tr><tr align='center' bgcolor='#66FFFF'><td>22<br />十六</td><td>23<br />十七</td><td>24<br />十八</td><td>25<br />十九</td><td>26<br />二十</td><td>27<br />廿一</td><td>28<br />廿二</td></tr><tr align='center' bgcolor='#66FFFF'><td>29<br />廿三</td><td>30<br />廿四</td><td>31<br />廿五</td><td></td><td></td><td></td><td></td></tr></table>";
+mth[7]="<table border='0' align='center' width='500px' height='300px' id='201606'><caption><font size='+3'>六月</font></caption><tr align='center' bgcolor='#FFFF66'><th>星期日</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th></tr><tr align='center' bgcolor='#66FFFF'><td></td><td></td><td></td><td id='jr'>1<br />儿童节</td><td>2<br />廿七</td><td>3<br />廿八</td><td>4<br />廿九</td></tr><tr align='center' bgcolor='#66FFFF'><td id='jr'>5<br />五月</td><td>6<br />初二</td><td>7<br />初三</td><td>8<br />初四</td><td id='jr'>9<br />端午</td><td>10<br />初六</td><td>11<br />初七</td></tr><tr align='center' bgcolor='#66FFFF'><td>12<br />初八</td><td>13<br />初九</td><td>14<br />初十</td><td>15<br />十一</td><td>16<br />十二</td><td>17<br />十三</td><td>18<br />十四</td></tr><tr align='center' bgcolor='#66FFFF'><td id='jr'>19<br />父亲节</td><td>20<br />十六</td><td id='jr'>21<br />夏至</td><td>22<br />十八</td><td>23<br />十九</td><td>24<br />二十</td><td>25<br />廿一</td></tr><tr align='center' bgcolor='#66FFFF'><td>26<br />廿二</td><td>27<br />廿三</td><td>28<br />廿四</td><td>29<br />廿五</td><td>30<br />廿六</td><td></td><td></td></tr></table>";
+mth[8]="<table border='0' align='center' width='500px' height='300px' id='201607'><caption><font size='+3'>七月</font></caption><tr align='center' bgcolor='#FFFF66'><th>星期日</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th></tr><tr align='center' bgcolor='#66FFFF'><td></td><td></td><td></td><td></td><td></td><td id='jr'>1<br />建党节</td><td>2<br />廿八</td></tr><tr align='center' bgcolor='#66FFFF'><td>3<br />廿九</td><td id='jr'>4<br />六月</td><td>5<br />初二</td><td>6<br />初三</td><td id='jr'>7<br />小暑</td><td>8<br />初五</td><td>9<br />初六</td></tr><tr align='center' bgcolor='#66FFFF'><td>10<br />初七</td><td>11<br />初八</td><td>12<br />初九</td><td>13<br />初十</td><td>14<br />十一</td><td>15<br />十二</td><td>16<br />十三</td></tr><tr align='center' bgcolor='#66FFFF'><td>17<br />十四</td><td>18<br />十五</td><td>19<br />十六</td><td>20<br />十七</td><td>21<br />十八</td><td id='jr'>22<br />大暑</td><td>23<br />二十</td></tr><tr align='center' bgcolor='#66FFFF'><td>24<br />廿一</td><td>25<br />廿二</td><td>26<br />廿三</td><td>27<br />廿四</td><td>28<br />廿五</td><td>29<br />廿六</td><td>30<br />廿七</td></tr><tr align='center' bgcolor='#66FFFF'><td>31<br />廿八</td><td></td><td></td><td></td><td></td><td></td><td></td></table>";
+mth[9]="<table border='0' align='center' width='500px' height='300px' id='201608'><caption><font size='+3'>八月</font></caption><tr align='center' bgcolor='#FFFF66'><th>星期日</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th></tr><tr align='center' bgcolor='#66FFFF'><td></td><td id='jr'>1<br />建军节</td><td>2<br />三十</td><td id='jr'>3<br />七月</td><td>4<br />初二</td><td>5<br />初三</td><td>6<br />初四</td></tr><tr align='center' bgcolor='#66FFFF'><td id='jr'>7<br />立秋</td><td>8<br />初六</td><td id='jr'>9<br />七夕</td><td>10<br />初八</td><td>11<br />初九</td><td>12<br />初十</td><td>13<br />十一</td></tr><tr align='center' bgcolor='#66FFFF'><td>14<br />十二</td><td>15<br />十三</td><td>16<br />十四</td><td id='jr'>17<br />中元</td><td>18<br />十六</td><td>19<br />十七</td><td>20<br />十八</td></tr><tr align='center' bgcolor='#66FFFF'><td>21<br />十九</td><td>22<br />二十</td><td id='jr'>23<br />处暑</td><td>24<br />廿二</td><td>25<br />廿三</td><td>26<br />廿四</td><td>27<br />廿五</td></tr><tr align='center' bgcolor='#66FFFF'><td>28<br />廿六</td><td>29<br />廿七</td><td>30<br />廿八</td><td>31<br />廿九</td><td></td><td></td><td></td></tr></table>";
+mth[10]="<table border='0' align='center' width='500px' height='300px' id='201609'><caption><font size='+3'>九月</font></caption><tr align='center' bgcolor='#FFFF66'><th>星期日</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th></tr><tr align='center' bgcolor='#66FFFF'><td></td><td></td><td></td><td></td><td id='jr'>1<br />八月</td><td>2<br />初二</td><td>3<br />初三</td></tr><tr align='center' bgcolor='#66FFFF'><td>4<br />初四</td><td>5<br />初五</td><td>6<br />初六</td><td id='jr'>7<br />白露</td><td>8<br />初八</td><td>9<br />初九</td><td id='jr'>10<br />教师节</td></tr><tr align='center' bgcolor='#66FFFF'><td>11<br />十一</td><td>12<br />十二</td><td>13<br />十三</td><td>14<br />十四</td><td id='jr'>15<br />中秋</td><td>16<br />十六</td><td>17<br />十七</td></tr><tr align='center' bgcolor='#66FFFF'><td>18<br />十八</td><td>19<br />十九</td><td>20<br />二十</td><td>21<br />廿一</td><td id='jr'>22<br />秋风</td><td>23<br />廿三</td><td>24<br />廿四</td></tr><tr align='center' bgcolor='#66FFFF'><td>25<br />廿五</td><td>26<br />廿六</td><td>27<br />廿七</td><td>28<br />廿八</td><td>29<br />廿九</td><td>30<br />三十</td><td></td></tr></table>";
+mth[11]="<table border='0' align='center' width='500px' height='300px' id='201610'><caption><font size='+3'>十月</font></caption><tr align='center' bgcolor='#FFFF66'><th>星期日</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th></tr><tr align='center' bgcolor='#66FFFF'><td></td><td></td><td></td><td></td><td></td><td></td><td id='jr'>1<br />国庆节</td></tr><tr align='center' bgcolor='#66FFFF'><td>2<br />初二</td><td>3<br />初三</td><td>4<br />初四</td><td>5<br />初五</td><td>6<br />初六</td><td>7<br />初七</td><td id='jr'>8<br />寒露</td></tr><tr align='center' bgcolor='#66FFFF'><td id='jr'>9<br />重阳</td><td>10<br />初十</td><td>11<br />十一</td><td>12<br />十二</td><td>13<br />十三</td><td>14<br />十四</td><td>15<br />十五</td></tr><tr align='center' bgcolor='#66FFFF'><td>16<br />十六</td><td>17<br />十七</td><td>18<br />十八</td><td>19<br />十九</td><td>20<br />二十</td><td>21<br />廿一</td><td>22<br />廿二</td></tr><tr align='center' bgcolor='#66FFFF'><td id='jr'>23<br />霜降十</td><td>24<br />廿四</td><td>25<br />廿五</td><td>26<br />廿六</td><td>27<br />廿七</td><td>28<br />廿八</td><td>29<br />廿九</td></tr><tr align='center' bgcolor='#66FFFF'><td>30<br />三十</td><td id='jr'>31<br />十月</td><td></td><td></td><td></td><td></td><td></td></tr></table>";
+var mooth=1;
+function zy(){
+mooth=mooth+1;
+if(mooth>12)mooth=12;
+var inter = document.getElementById("inner");    
+inter.innerHTML=mth[mooth-1];
+ 
+}
+function jy(){
+mooth=mooth-1;
+if(mooth<1)mooth=1;
+ var inter = document.getElementById("inner");    
+ inter.innerHTML=mth[mooth-1];
+} 
+var TupleValue=new Array();
+TupleValue[0]="test1";		  
+
+</script>
+
+</head>
+
+<body >
+
+<div class="top">
+      <div class="topp">
+       日程安排中心
+      </div>
+</div>
+<div class="yhy">
+  
+       <div class="toup">
+	   <img src="picture/u=2496618007,3190450108&amp;fm=21&amp;gp=0.jpg" />
+	   </div>
+	   <div class="yhm">
+	   昵称：
+	   </div>
+	   <div class="lr" onclick="window.location.href='entering.html';return false">
+	   录入日程
+	   </div>
+	   <div class="xg" onclick="window.location.href='modify.html';return false">
+	   修改日程
+	   </div>
+	   <div class="sc" onclick="window.location.href='delete.html';return false">
+	   删除日程
+	   </div>
+	    <div class="cd" onclick="window.location.href='menu.html';return false">
+	   返回菜单
+	   </div>
+	   
+</div>
+<div class="ckq">
+<div class="yjt" onclick="jy()"><img src="picture/resizeApi2.png" id="tp"/></div>
+<div class="zyt" onclick="zy()"><img src="picture/resizeApi1.png" id="tp" /></div>
+<div class='rl' id="inner">
+<table border='0' align='center' width='500px' height='300px' >
+<caption><font size='+3'>十一月</font></caption>
+<tr align='center' bgcolor='#FFFF66'><th>星期日</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th>
+</tr>
+<tr align='center' bgcolor='#66FFFF'><td id='jr'>1<br />万圣节</td><td>2<br />廿一</td><td>3<br />廿二</td><td>4<br />廿三</td><td>5<br />廿四</td><td>6<br />廿五</td><td>7<br />廿六</td>
+</tr>
+<tr align='center' bgcolor='#66FFFF'><td id='jr'>8<br />立冬</td><td>9<br />廿八</td><td>10<br />廿九</td><td>11<br />三十</td><td  id='jr'>12<br />十月</td><td>13<br />初二</td><td>14<br />初三</td>
+</tr>
+<tr align='center' bgcolor='#66FFFF'><td>15<br />初四</td><td>16<br />初五</td><td>17<br />初六</td><td>18<br />初七</td><td>19<br />初八</td><td>20<br />初九</td><td>21<br />初十</td>
+</tr>
+<tr align='center' bgcolor='#66FFFF'><td>22<br />十一</td><td>23<br />十二</td><td id='jr'>24<br />小雪</td><td>25<br />十四</td><td>26<br />十五</td><td>27<br />十六</td><td>28<br />十七</td>
+</tr>
+<tr align='center' bgcolor='#66FFFF'><td>29<br />十八</td><td>30<br />十九</td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+</table>
+</div>
+
+</body>
+</html>
