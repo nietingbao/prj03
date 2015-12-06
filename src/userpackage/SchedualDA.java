@@ -19,7 +19,7 @@ public class SchedualDA {
 	static String username;
 	static String password;
 	static Schedual bschedual;
-	static String a;
+
 	/*try pushing to github*/	
 	public static Connection initialize(){
 			try{
